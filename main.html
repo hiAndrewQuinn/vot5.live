@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>vot5.live</title>
+	<style type="text/css">
+		body {
+			background-color: #000000;
+			font-family: "Fira Code", monospace;
+            color: #dddddd;
+			text-align: center;
+		}
+        textarea {
+            background-color: #010101;
+            color: #efefef;
+        }fhjbkm
+		h1 {
+			margin-bottom: 0.1em;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function vot5(s) {
+            return s.replace(/[aeiouAEIOU]/g, function (c) {
+                return ((Math.random() < 0.98) ? {
+                    'a': 'e', 'e': 'i', 'i': 'o', 'o': 'u', 'u': 'a',
+                    'A': 'E', 'E': 'I', 'I': 'O', 'O': 'U', 'U': 'A'
+                }[c] : c);
+            }); /* fuck yr idempotency :^} */
+		}     
+		function update() {
+			document.getElementById('output').value = vot5(document.getElementById('input').value);
+		}
+	</script>
+	
+</head>
+<body>
+
+<h1>vote five [dot] live</h1>
+<h2><a href="https://twitter.com/Virtual1nstinct/status/1406653629931474946">what is this</a></h2>
+
+<noscript><p><span class="warning"><em>Please enable JavaScript to use this page.</em></span></p></noscript>
+
+<p><textarea id="input" cols="120" rows="8" onkeyup="update()" onchange="update()" autofocus></textarea></p>
+
+<p class="arrow">↓</p>
+
+<p><textarea id="output" cols="120" rows="24" readonly></textarea></p>
+
+
+</body>
+</html>
